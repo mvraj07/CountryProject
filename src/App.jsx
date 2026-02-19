@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
@@ -40,12 +39,3 @@ function App() {
   return <RouterProvider router={router}></RouterProvider>;
 }
 export default App;
-=======
-export const App = () => {
-  return (
-    <>
-      <h1>App component</h1>
-    </>
-  );
-};
->>>>>>> main

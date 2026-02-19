@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const Footer = () => {
   return (
     <footer className="footer-section">
@@ -6,5 +5,3 @@ export const Footer = () => {
     </footer>
   );
 };
-=======
->>>>>>> main
