@@ -1,22 +1,23 @@
-import { FaLongArrowAltRight } from "react-icons/fa";
+import "../../App.css";
 
 export const HeroSection = () => {
   return (
     <main className="hero-section main">
-      <div className="container grid grid-two-cols">
+      <div className="container hero-container grid grid-2-cols">
         <div className="hero-content">
-          <h1>Explore the World. One Country at a Time</h1>
-          <p>
-            Discover the Beauty, Culture and History of every nation. Sort,
-            Search and Filter through countries to find the details you need.
+          <h1 className="hero-heading">
+            Explore the World. One Country at a Time.
+          </h1>
+          <p className="hero-para">
+            explore the world exploretheworld invites you on a visual journey
+            around the globe through stunning photography. Discover breathtaking
+            landscapes, iconic landmark
           </p>
-          <button>
-            Start Exploring <FaLongArrowAltRight />
-          </button>
+          <button className="heroButton button">Start Exploring</button>
         </div>
-        <div className="hero-image">
-          <img src="./images/heroImage.webp" alt="" />
-        </div>
+        <figure className="hero-image">
+          <img src="/images/world.png" alt="" />
+        </figure>
       </div>
     </main>
   );
