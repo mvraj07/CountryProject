@@ -6,7 +6,7 @@ import { Country } from "./pages/country";
 import { About } from "./pages/about";
 import { Home } from "./pages/home";
 
-import { AppLayout } from "./layout/appLayout";
+import { AppLayout } from "./layout/AppLayout";
 import { ErrorPage } from "./pages/errorPage";
 
 function App() {
