@@ -1,6 +1,5 @@
-import { NavLink, useRouteError } from "react-router-dom";
-
 export const ErrorPage = () => {
+<<<<<<< HEAD
   const error = useRouteError();
 
   return (
@@ -11,4 +10,7 @@ export const ErrorPage = () => {
       </NavLink>
     </>
   );
+=======
+  return <h1>Error page</h1>;
+>>>>>>> main
 };

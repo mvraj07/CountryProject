@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
@@ -16,4 +17,8 @@ export const Header = () => {
       </div>
     </header>
   );
+=======
+export const Header = () => {
+  return <h1>About Section</h1>;
+>>>>>>> main
 };

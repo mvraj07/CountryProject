@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "../../App.css";
 
 export const HeroSection = () => {
@@ -22,3 +23,5 @@ export const HeroSection = () => {
     </main>
   );
 };
+=======
+>>>>>>> main
