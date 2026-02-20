@@ -1,5 +1,5 @@
 import "../../App.css";
-
+import { FaLongArrowAltRight } from "react-icons/fa";
 export const HeroSection = () => {
   return (
     <main className="hero-section main">
@@ -13,7 +13,10 @@ export const HeroSection = () => {
             around the globe through stunning photography. Discover breathtaking
             landscapes, iconic landmark
           </p>
-          <button className="heroButton button">Start Exploring</button>
+          <button className="heroButton button">
+            Start Exploring
+            <FaLongArrowAltRight />
+          </button>
         </div>
         <figure className="hero-image">
           <img src="/images/world.png" alt="" />
