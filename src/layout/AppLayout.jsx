@@ -4,10 +4,16 @@ import { Outlet } from "react-router-dom";
 
 export const AppLayout = () => {
   return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
+    <div className="app">
+      <div className="Heared">
+        <Header />
+      </div>
+      <div className="Outlet">
+        <Outlet />
+      </div>
+      <div className="Footer">
+        <Footer />
+      </div>
+    </div>
   );
 };

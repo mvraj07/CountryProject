@@ -188,6 +188,9 @@ button {
 
 /* contact section  */
 
+.contact-section {
+  margin-bottom: 5rem;
+}
 .form {
   margin-top: 3rem;
   display: flex;
@@ -229,10 +232,11 @@ button {
 
 /* footer section  */
 .footer-section {
-  height: 10rem;
   background-color: #1d1b1b;
   color: white;
+
   .container .details ul {
+    height: 100%;
     display: flex;
     justify-content: space-between;
   }
@@ -245,8 +249,28 @@ button {
     color: white;
   }
 }
-.copyright {
-  background-color: #7c7b7b;
-  text-align: center;
-  display: block;
+
+.copyright-section {
+  width: 100%;
+  background-color: #5a5858;
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .Outlet {
+    flex: 1;
+
+    place-content: center;
+  }
 }

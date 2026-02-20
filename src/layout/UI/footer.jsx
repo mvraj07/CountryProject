@@ -13,13 +13,27 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <NavLink
-        to="https://github.com/mvraj07/CountryProject"
-        className="copyright "
-        target="_blank"
-      >
-        Copyright @2026. All rights reserved <span>Raj Vijay Mahajan</span>
-      </NavLink>
+      <div className="copyright-section">
+        <div className="container">
+          <NavLink
+            to="https://github.com/mvraj07/CountryProject"
+            className="copyright "
+            target="_blank"
+          >
+            Copyright @2026. All rights reserved <span>Raj Vijay Mahajan</span>
+          </NavLink>
+          <div className="nav">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="https://github.com/mvraj07/CountryProject">
+              Socials
+            </NavLink>
+            <NavLink to="https://github.com/mvraj07/CountryProject">
+              SourceCode
+            </NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
