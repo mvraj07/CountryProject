@@ -1,17 +1,40 @@
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { CountryCard } from "../layout/UI/CountryCard";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import { DropdownMenu } from "../layout/UI/DropdownMenu";
 
 export const Country = () => {
-  // const [countries, setcountries] = useState([]);
-  const [toggleMenu, setToggleMenu] = useState(false);
-
   const countries = useLoaderData();
-  const handleDropdownMenu = () => {
-    setToggleMenu(!toggleMenu);
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const [dropname, setDropname] = useState("All");
+  const [filteredCountries, setFilteredCountries] = useState(countries);
+
+  const handleDropdownSelection = (e) => {
+    setDropname(e.target.name);
+    setToggleMenu(false);
+    setFilteredCountries(filteredCountriesReturn(e));
   };
+  const filteredCountriesReturn = (e) => {
+    const region = e.target.name;
+    if (region.toLowerCase() === "all") {
+      return countries;
+    } else if (e.target.name === "ascending") {
+      console.log("logic reached");
+      return countries.sort((a, b) =>
+        a.name.common.localeCompare(b.name.common),
+      );
+    } else {
+      return countries.filter((curCountry) => {
+        if (curCountry.region === region) return curCountry;
+      });
+    }
+  };
+  const handleButtonClicks = (e) => {
+    console.log("asc clicked");
+    setFilteredCountries(filteredCountriesReturn(e));
+  };
+
   return (
     <div className="country-section">
       <div className="features container">
@@ -19,24 +42,37 @@ export const Country = () => {
           <input type="text" placeholder="Search for Country" />
         </div>
         <div className="ascending-filter">
-          <button>Asc</button>
+          <button onClick={handleButtonClicks} name="ascending">
+            Asc
+          </button>
         </div>
         <div className="descending-filter">
-          <button>Desc</button>
+          <button onClick={handleButtonClicks} name="descending">
+            Desc
+          </button>
         </div>
-        <div className="Sort-filter">
-          <div className="dropdown" onClick={handleDropdownMenu}>
-            <NavLink to="/country?region=Asia">
-              All
+        <div
+          className="Sort-filter"
+          onMouseEnter={() => setToggleMenu(true)}
+          onMouseLeave={() => setToggleMenu(false)}
+        >
+          <div className="dropdown">
+            <button>
+              {dropname}
               <IoIosArrowDropdownCircle />
-            </NavLink>
-            {toggleMenu ? <DropdownMenu /> : ""}
+            </button>
+            {toggleMenu ? (
+              <DropdownMenu handleDropdownSelection={handleDropdownSelection} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
 
       <div className="container cards">
-        {countries.map((curCountry) => {
+        {filteredCountries.map((curCountry) => {
+          // console.log(curCountry);
           return (
             <CountryCard curCountry={curCountry} key={curCountry.name.common} />
           );
