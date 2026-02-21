@@ -7,6 +7,7 @@ import { DropdownMenu } from "../layout/UI/DropdownMenu";
 export const Country = () => {
   const countries = useLoaderData();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [search, setSearch] = useState("");
   const [dropname, setDropname] = useState("All");
   const [filteredCountries, setFilteredCountries] = useState(countries);
 
@@ -38,11 +39,26 @@ export const Country = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const ctries = filteredCountries.filter((country) => {
+    if (search) {
+      return country.name.common.toLowerCase().includes(search.toLowerCase());
+    }
+    return country;
+  });
+
   return (
     <div className="country-section">
       <div className="features container">
         <div className="search-filter">
-          <input type="text" placeholder="Search for Country" />
+          <input
+            type="text"
+            placeholder="Search for Country"
+            value={search}
+            onChange={handleSearch}
+          />
         </div>
         <div className="ascending-filter">
           <button onClick={handleButtonClicks} name="ascending">
@@ -74,13 +90,28 @@ export const Country = () => {
       </div>
 
       <div className="container cards">
-        {filteredCountries.map((curCountry) => {
-          console.log(curCountry);
-          return (
-            <CountryCard curCountry={curCountry} key={curCountry.name.common} />
-          );
-          // console.log(curCountry);
-        })}
+        {search
+          ? ctries.map((curCountry) => {
+              // console.log(curCountry);
+              return (
+                <CountryCard
+                  curCountry={curCountry}
+                  key={curCountry.name.common}
+                />
+              );
+
+              // console.log(curCountry);
+            })
+          : filteredCountries.map((curCountry) => {
+              // console.log(curCountry);
+              return (
+                <CountryCard
+                  curCountry={curCountry}
+                  key={curCountry.name.common}
+                />
+              );
+              // console.log(curCountry);
+            })}
       </div>
     </div>
   );
