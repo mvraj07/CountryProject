@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 export const AppLayout = () => {
   return (
     <div className="app">
-      <div className="Heared">
+      <div className="Header">
         <Header />
       </div>
       <div className="Outlet">

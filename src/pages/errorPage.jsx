@@ -6,7 +6,12 @@ export const ErrorPage = () => {
   return (
     <>
       <h1>{`Error Page: ${error.data}`}</h1>
-      <NavLink to={"/"} className="error-button">
+      <NavLink
+        to={"/"}
+        className={`error-button ${(isActive) => {
+          isActive ? "active" : "";
+        }}`}
+      >
         Go back Home
       </NavLink>
     </>

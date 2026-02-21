@@ -8,7 +8,7 @@ export const FooterComponent = ({ curData }) => {
     TbMailPlus: <TbMailPlus size={54} />,
   };
 
-  console.log(Icons);
+  // console.log(Icons);
   return (
     <li className="footercomp">
       <div className="icon">{Icons[curData.icon]}</div>
