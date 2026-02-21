@@ -13,3 +13,7 @@ export const getCountryDetail = (countryName) => {
     `/name/${countryName}?fields=name,population,region,subregion,capital,currencies,flags,languages`,
   );
 };
+
+export const getCountriesByRegion = (asia) => {
+  return api.get(`/region/${asia}`);
+};
