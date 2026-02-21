@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-export const CountryCard = ({ curCountry }) => {
+export const CountryCard = memo(({ curCountry }) => {
   // console.log(curCountry);
   const { flags, population, region, capital, name } = curCountry;
   // console.log(name.common);
@@ -36,4 +37,4 @@ export const CountryCard = ({ curCountry }) => {
       </NavLink>
     </div>
   );
-};
+});
