@@ -132,6 +132,7 @@ button {
 /* Header section */
 .header-section {
   height: 100px;
+  position: relative;
   background-color: #202020;
   margin-bottom: 3rem;
 
@@ -287,6 +288,8 @@ button {
 /*Country card */
 .country-section {
   display: grid;
+  position: relative;
+  z-index: 9999;
 }
 .country-card {
   display: flex;
@@ -373,28 +376,52 @@ button {
   }
 }
 /* dropdown menu  */
-
-.dropdown {
-  position: relative;
-  top: 0;
+.Sort-filter {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   width: 18rem;
   height: 4rem;
   color: white;
-  /* overflow: hidden; */
-  border-radius: 1rem;
+  /*overflow: hidden;
+  */
+  border-radius: 1rem 1rem 0 0;
   border: 2px solid white;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
-
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+}
+.dropdown {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  button,
   a {
+    background-color: transparent;
+    width: 100%;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-inline: 1rem;
+  }
+}
+.dropdown-menu {
+  position: absolute;
+  left: -2;
+  width: 18rem;
+  z-index: 10000;
+  border: 2px solid white;
+  background-color: rgb(28, 26, 26);
+
+  button {
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
   }
 }
