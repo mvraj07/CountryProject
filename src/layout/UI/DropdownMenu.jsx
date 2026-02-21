@@ -1,12 +1,18 @@
-import { NavLink } from "react-router-dom";
-
-export const DropdownMenu = () => {
+export const DropdownMenu = ({ handleDropdownSelection }) => {
   return (
-    <div className="dropdown">
-      <NavLink to="/country">All</NavLink>
-      <NavLink to="/country?region=Africa">Africa</NavLink>
-      <NavLink to="/country?region=Asia">Asia</NavLink>
-      <NavLink to="/country?region=Europe">Europe</NavLink>
+    <div className=" dropdown-menu">
+      <button onClick={handleDropdownSelection} name="All">
+        All
+      </button>
+      <button onClick={handleDropdownSelection} name="Africa">
+        Africa
+      </button>
+      <button onClick={handleDropdownSelection} name="Asia">
+        Asia
+      </button>
+      <button onClick={handleDropdownSelection} name="Europe">
+        Europe
+      </button>
     </div>
   );
 };
