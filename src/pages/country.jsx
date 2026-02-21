@@ -16,23 +16,26 @@ export const Country = () => {
     setFilteredCountries(filteredCountriesReturn(e));
   };
   const filteredCountriesReturn = (e) => {
-    const region = e.target.name;
-    if (region.toLowerCase() === "all") {
+    const region = e.target.name.toLowerCase();
+    if (region === "all") {
       return countries;
-    } else if (e.target.name === "ascending") {
-      console.log("logic reached");
-      return countries.sort((a, b) =>
-        a.name.common.localeCompare(b.name.common),
-      );
     } else {
       return countries.filter((curCountry) => {
-        if (curCountry.region === region) return curCountry;
+        if (curCountry.region.toLowerCase() === region) return curCountry;
       });
     }
   };
   const handleButtonClicks = (e) => {
-    console.log("asc clicked");
-    setFilteredCountries(filteredCountriesReturn(e));
+    if (e.target.name === "ascending") {
+      console.log("logic reached");
+      const ctrs = [...filteredCountries];
+      ctrs.sort((a, b) => a.name.common.localeCompare(b.name.common));
+      setFilteredCountries(ctrs);
+    } else if (e.target.name === "descending") {
+      const ctrs = [...filteredCountries];
+      ctrs.sort((a, b) => b.name.common.localeCompare(a.name.common));
+      setFilteredCountries(ctrs);
+    }
   };
 
   return (
@@ -72,7 +75,7 @@ export const Country = () => {
 
       <div className="container cards">
         {filteredCountries.map((curCountry) => {
-          // console.log(curCountry);
+          console.log(curCountry);
           return (
             <CountryCard curCountry={curCountry} key={curCountry.name.common} />
           );
